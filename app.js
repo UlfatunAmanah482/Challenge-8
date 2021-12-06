@@ -3,6 +3,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
+const swaggerUi = require("swagger-ui-express")
+const swaggerJSON = require('./app/docs/swagger.json')
+const sequelize = require('./app/models')
 
 var corsOptions = {
   origin: "http://localhost:8081"
@@ -13,6 +16,11 @@ app.use(cors(corsOptions));
 // accept request in form or JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerJSON))
+
+// app.use('/v1', todo)
+
+// sequelize.authenticate().then(() => console.log('db ok'))
 
 const db = require("./app/models");
 db.client.sync();
