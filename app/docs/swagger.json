@@ -239,7 +239,7 @@
           {
             "in": "path",
             "name": "id",
-            "description": "Id that need to be update",
+            "description": "Id that need to be delete",
             "required": true,
             "type": "integer"
           }
@@ -249,7 +249,7 @@
             "description": "Player was deleted successfully."
           },
           "400": {
-            "description": "Cannot delete Player with id=${id}. Maybe Player was not found!"
+            "description": "Cannot delete Player. Maybe Player was not found!"
           }
         }
       }
@@ -288,7 +288,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Player with id=${id} has more experience."
+            "description": "Player has more experience."
           },
           "400": {
             "description": "exp field cannot be empty."
